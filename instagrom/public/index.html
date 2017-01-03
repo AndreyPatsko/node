@@ -1,14 +1,15 @@
 <!DOCTYPE>
-<html ng-app="pistures">
+<html ng-app="app">
     <head>
         <title> Instagrom</title>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-    <script src="core.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"> </script>
+        <script src="core.js"></script>
     </head>
-    <body ng-controller="pictureController">
-        <div class="menu container">
+    <body >
+        <div ng-controller="pictureController">
+            <div class="menu container" >
             <div class="row">
                    <div class="col-md-8 col-md-offset-4">
                        <div class="btn-group btn-group-justified" role="group" aria-label="...">
@@ -16,10 +17,10 @@
                                 <button type="button" class="btn btn-default">Home</button>
                             </div>
                             <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-default">Log in</button>
+                                <button type="button" class="btn btn-default"><a href='/#/login'>Log in</a></button>
                             </div>
                             <div class="btn-group" role="group">
-                                <button type="button" ng-click="registration()" class="btn btn-default">Registration</button>
+                                <button type="button" class="btn btn-default"><a href="/#/registration">Registration</a></button>
                             </div>
                         </div>
                     </div>
@@ -27,23 +28,10 @@
                 
             </div>
         </div>
-        <div class="jumbotron text-center container">
-            <div class="login container">
-            <div class="login-triangle"></div>
-            
-            <h2 class="login-header">Log in</h2>
-
-            <form class="login-container">
-                <p><input type="email" placeholder="Email"></p>
-                <p><input type="password" placeholder="Password"></p>
-                <p><input type="submit" value="Log in"></p>
-            </form>
-            </div>
+             <ng-view></ng-view>
         </div>
     </body>
 
 </html>
 
 <a href="/cat">cat</a>
-
-
