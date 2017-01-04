@@ -11,20 +11,13 @@ angular.module('app',['ngRoute'])
         controller:'pictureController'
     })
     .otherwise({redirectTo: '/login'});
-    // $locationProvider.html5Mode(true);
 })
 
 .controller('pictureController',function($http,$scope, $location){
 
-    $http.get('/user')
-        .then(res => {
-            $scope.user = res.data;
-            console.log($scope.user)
-        })
-
     $scope.registrate = function(user){
         console.log(user)
-        $http.post('/registration',user)
+        $http.post('/api/registration',user)
             .success(function(mess){
                 if(mess){
                     console.log(good);

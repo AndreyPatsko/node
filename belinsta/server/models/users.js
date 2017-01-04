@@ -3,11 +3,13 @@ const bcrypt = require('bcrypt-nodejs');
 const SALT_FACTOR = 10;
 
 let userSchema = mongoose.Schema({
-    email: {type:String,required:true},
     nickname: {type: String,required:true},
+    email: {type:String,required:true},
     password: {type:String,required:true},
     createdAt: {type: Date, default: Date.now}   
 });
+
+
 
 let noop = function(){};
 
@@ -40,7 +42,6 @@ userSchema.methods.checkPassword = function(guess,done){
 userSchema.methods.name = function(){
     return this.displayName || this.username;
 };
-
 
 let User = mongoose.model('User',userSchema);
 module.exports = User;

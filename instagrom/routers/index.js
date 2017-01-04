@@ -26,16 +26,14 @@ router.post('/',function(request,response){
     response.sendFile('./public/index.html')
 });
 
-router.get('/user', function(request, response) {
-    response.json({email: 'blabla@bla', password: '1234'})
-})
+
 
 router.post('/registration',function(req,res,next){
-    let username = req.body.username;
+    let email = req.body.email;
     let password = req.body.password;
     let nickname = req.body.nickname;
 
-    User.findOne({username:username},function(err,user){
+    User.findOne({nickname:nickname},function(err,user){
         if(err){
             return next(err);
         }
@@ -43,7 +41,7 @@ router.post('/registration',function(req,res,next){
             req.flash('error','User already exists');
             return res.redirect('/registration');
         }
-        let newUser = new User({username:username,password:password,nickname:nickname});
+        let newUser = new User({email:email,password:password,nickname:nickname});
         newUser.save(next);
     });
 },passport.authenticate('login',{
