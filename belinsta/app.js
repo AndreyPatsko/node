@@ -7,6 +7,8 @@ const cookieParser = require("cookie-parser");
 const passport = require('passport');
 const session = require("express-session");
 const flash = require("connect-flash");
+const multiparty = require('connect-multiparty');
+multipartyMiddleware = multiparty();
 
 const router = require('./server/routers');
 const setUpPassport = require('./setuppassport');
