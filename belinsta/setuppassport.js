@@ -32,3 +32,10 @@ passport.use("login", new LocalStrategy(
         });
         });
     }));
+
+
+exports.mustAuthenticatedMw = function (req, res, next){
+  req.isAuthenticated()
+    ? next()
+    : res.redirect('/');
+};

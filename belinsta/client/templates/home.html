@@ -1,4 +1,5 @@
 <div ng-controller="MyCtrl">
+    <div class="jumbotron text-center container">
   <h4>Upload on file select</h4>
   <button ng-model="picFile" ngf-select="uploadFiles($files, $invalidFiles)" multiple
           accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
@@ -17,5 +18,6 @@
     </li> 
   </ul>
   {{errorMsg}}
+    </div>
 </div>
 

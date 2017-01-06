@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt-nodejs');
+const jwt = require('jsonwebtoken');
 const SALT_FACTOR = 10;
 
 let userSchema = mongoose.Schema({
@@ -43,6 +44,8 @@ userSchema.methods.checkPassword = function(guess,done){
 userSchema.methods.name = function(){
     return this.displayName || this.username;
 };
+
+
 
 
 

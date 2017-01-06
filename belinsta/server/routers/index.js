@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const multiparty = require('connect-multiparty'); 
 multipartyMiddleware = multiparty();
 
+
 let router = express.Router();
 
 let User = require('../models/users.js');
@@ -24,6 +25,10 @@ router.get('/registration',function(request,response){
 });
 
 router.get('/login',function(request,response){
+    response.redirect('/');
+});
+
+router.get('/home',function(request,response){
     response.redirect('/');
 });
 
@@ -93,6 +98,12 @@ router.post('/upload', multipartyMiddleware, function (req, res, next) {
             next();
         }
     });
+
+
+router.post('/logout',function(request,response){
+    request.logout();
+    response.send(true);
+});
 
 
 router.get('/',function(request,response){

@@ -10,6 +10,10 @@ angular.module('app',['ngRoute','ngFileUpload'])
         templateUrl:'./templates/login.html',
         controller:'loginCtrl'
     })
+    .when('/logout', {
+        templateUrl:'./templates/login.html',
+        controller:'logoutCtrl'
+    })
     .when('/home', {
         templateUrl:'./templates/home.html',
         controller:'MyCtrl'
@@ -62,4 +66,14 @@ angular.module('app',['ngRoute','ngFileUpload'])
             });
         });
     }
-}]);
+}])
+
+.controller('logoutCtrl',function($http,$scope, $location){
+   
+        $http.post('/logout')
+            .success(function(){
+                $location.path('/login');
+            })
+    }
+    
+)
